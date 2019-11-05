@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:c="clr-namespace:headtrip.Controls"
+             mc:Ignorable="d"
+             x:Class="headtrip.Views.SettingsPage"
+             BackgroundColor="Gray"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Dump Log" Order="Secondary" Command="{Binding DumpLogCommand }"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid Margin="5,10,5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <c:CLabel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="Start On Boot"/>
+            <Switch Grid.Row="0" Grid.Column="2" IsToggled="{Binding StartOnBoot}"/>
+
+            <c:CLabel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Threshold Alarm"/>
+            <Switch Grid.Row="1" Grid.Column="2" IsToggled="{Binding ThresholdAlarm}"/>
+
+            <c:CLabel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Accelerator Speed"/>
+            <c:CSlider Grid.Row="2" Grid.Column="2" Minimum="0" Maximum="3" Value="{Binding AcceleratorSpeed}"/>
+
+            <c:CLabel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Magnometer Speed"/>
+            <c:CSlider Grid.Row="3" Grid.Column="2" Minimum="0" Maximum="3" Value="{Binding MagnometerSpeed}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
